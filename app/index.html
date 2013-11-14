@@ -1,0 +1,42 @@
+<!doctype html>
+<html lang="en" ng-app="overlapGraph">
+<head>
+  <meta charset="utf-8">
+  <title>Overlap Graph</title>
+  <link rel="stylesheet" href="css/app.css">
+  <link rel="stylesheet" href="css/bootstrap.min.css">
+  <script src="lib/angular/angular.js"></script>
+  <script src="js/controllers.js"></script>
+</head>
+<body ng-controller="OverlapGraphCtrl">
+  <div class="container">
+    <form role="form">
+      <div class="form-group">
+        <label for="chainName">Name</label>
+        <input type="text" class="form-control" id="chainName" placeholder="Name" ng-model="chainName">
+      </div>
+      <div class="form-group">
+        <label for="chainSequence">Sequence</label>
+        <input type="text" class="form-control" id="chainSequence" placeholder="Sequence" ng-model="chainSequence">
+      </div>
+      <button type="button" class="btn btn-default" ng-click="addChain(chainName, chainSequence)">Add</button>
+    </form>
+
+    <table class="chains table">
+      <thead>
+        <tr>
+          <th>Name</th>
+          <th>Sequence</th>
+        </tr>
+      </thead>
+      <tbody>
+        <tr ng-repeat="chain in chains">
+          <td>{{chain.name}}</td>
+          <td>{{chain.sequence}}</td>
+        </tr>
+      </tbody>
+    </table>
+  </div>
+
+</body>
+</html>
