@@ -2,9 +2,9 @@
 
 /* Controllers */
 
-var overlapGraph = angular.module('overlapGraph', []);
+var overlapGraphControllers = angular.module('overlapGraphControllers', []);
 
-overlapGraph.controller('OverlapGraphCtrl', function OverlapGraphCtrl($scope) {
+overlapGraphControllers.controller('OverlapGraphCtrl', function OverlapGraphCtrl($scope) {
   $scope.chains = [];
   $scope.newChain = { name: "", sequence: "" };
 

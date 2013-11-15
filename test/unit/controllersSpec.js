@@ -6,7 +6,7 @@ describe('overlapGraph controllers', function() {
   describe('overlapGraphCtrl', function(){
     var scope, ctrl;
 
-    beforeEach(module('overlapGraph'));
+    beforeEach(module('overlapGraphControllers'));
 
     beforeEach(inject(function($controller) {
       scope = {};

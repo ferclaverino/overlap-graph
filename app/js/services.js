@@ -1,4 +1,9 @@
-'use strict';
+var overlapGraphServices = angular.module('overlapGraphServices', []);
 
-/* Services */
-
+overlapGraphServices.factory('overlapGrapBuilder', function() {
+  return {
+    build: function() {
+      return [];
+    }
+  };
+});
