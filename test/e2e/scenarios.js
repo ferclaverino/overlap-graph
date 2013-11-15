@@ -22,5 +22,20 @@ describe('Overlap graph App', function() {
       expect(input('newChain.sequence').val()).toBe('');
     });
 
+    it('should generate a graph', function() {
+      expect(repeater('.graph tbody tr').count()).toBe(0);
+
+      input('newChain.name').enter('1');
+      input('newChain.sequence').enter('AAAABBBBCCCC');
+      element('form button').click();
+
+      input('newChain.name').enter('2');
+      input('newChain.sequence').enter('CCCCDDDDEEEE');
+      element('form button').click();
+
+      element('#generate').click();
+
+      expect(repeater('.graph tbody tr').count()).toBe(1);
+    });
   });
 });

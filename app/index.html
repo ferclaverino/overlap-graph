@@ -38,6 +38,18 @@
         </tr>
       </tbody>
     </table>
+    
+    <button id="generate" type="button" class="btn btn-default" ng-click="buildGraph(chains)">Generate</button>
+
+    <table class="graph table">
+      <tbody>
+        <tr ng-repeat="node in graph">
+          <td>{{node.from}}</td>
+          <td>{{node.to}}</td>
+        </tr>
+      </tbody>
+    </table>
+    
   </div>
 
 </body>

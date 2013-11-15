@@ -2,24 +2,25 @@
 
 describe('overlapGraph service', function() {
   describe('overlapGrapBuilder', function() {
-    var overlapGraphService;
+    var overlapGraphBuilder;
 
+    beforeEach(module('overlapGraphApp'));
     beforeEach(module('overlapGraphServices'));
 
     beforeEach(inject(function($injector) {
-      overlapGraphService = $injector.get('overlapGrapBuilder');
+      overlapGraphBuilder = $injector.get('overlapGraphBuilder');
     }));
 
     it('an empty list should return an empty graph', function () {
-      expect(overlapGraphService.build([])).toEqual([]);
+      expect(overlapGraphBuilder.build([])).toEqual([]);
     });
 
     it('READ1 should return an empty graph', function () {
-      expect(overlapGraphService.build([{ name: 'READ1', sequence: 'AAACCCCCGGGTTTTT'}])).toEqual([]);
+      expect(overlapGraphBuilder.build([{ name: 'READ1', sequence: 'AAACCCCCGGGTTTTT'}])).toEqual([]);
     });
 
     it('READ1, READ3 should return an READ3 -> READ1', function () {
-      expect(overlapGraphService.build([
+      expect(overlapGraphBuilder.build([
         { name: 'READ1', sequence: 'AAACCCCCGGGTTTTT'},
         { name: 'READ3', sequence: 'CCACCCCCGCCTAAAC'}
       ])).toEqual([
@@ -28,7 +29,7 @@ describe('overlapGraph service', function() {
     });
 
     it('READ3, READ1 should return an READ3 -> READ1', function () {
-      expect(overlapGraphService.build([
+      expect(overlapGraphBuilder.build([
         { name: 'READ3', sequence: 'CCACCCCCGCCTAAAC'},
         { name: 'READ1', sequence: 'AAACCCCCGGGTTTTT'}
       ])).toEqual([
@@ -37,7 +38,7 @@ describe('overlapGraph service', function() {
     });
 
     it('READ1, READ3, READ2 should return READ3 -> READ1, READ2 -> READ3', function () {
-      expect(overlapGraphService.build([
+      expect(overlapGraphBuilder.build([
         { name: 'READ1', sequence: 'AAACCCCCGGGTTTTT'},
         { name: 'READ3', sequence: 'CCACCCCCGCCTAAAC'},
         { name: 'READ2', sequence: 'AACCGCCCGGGCCCAC'}

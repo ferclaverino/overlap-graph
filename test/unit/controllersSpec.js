@@ -3,14 +3,17 @@
 /* jasmine specs for controllers go here */
 describe('overlapGraph controllers', function() {
 
-  describe('overlapGraphCtrl', function(){
-    var scope, ctrl;
+  beforeEach(module('overlapGraphApp'));
+  beforeEach(module('overlapGraphControllers'));
+  beforeEach(module('overlapGraphServices'));
 
-    beforeEach(module('overlapGraphControllers'));
+  describe('overlapGraphCtrl', function(){
+    var scope, ctrl, overlapGraphBuilder;
 
     beforeEach(inject(function($controller) {
       scope = {};
-      ctrl = $controller('OverlapGraphCtrl', {$scope:scope});
+      overlapGraphBuilder = {build: jasmine.createSpy()};
+      ctrl = $controller('OverlapGraphCtrl', {$scope: scope, overlapGraphBuilder: overlapGraphBuilder });
     }));
 
     it('should create "chains" model with 0 chains', function() {
@@ -35,5 +38,15 @@ describe('overlapGraph controllers', function() {
       expect(scope.chains.length).toBe(0);
     });
 
+    it('should build and empty graph', function() {
+      scope.buildGraph([]);
+      expect(overlapGraphBuilder.build).toHaveBeenCalledWith([]);
+    });
+
+    it('should build and graph with 1 item', function() {
+      overlapGraphBuilder.build = jasmine.createSpy().andReturn([{from: "A", to: "B"}]);
+      scope.buildGraph([]);
+      expect(scope.graph.length).toBe(1);
+    });
   });
 });

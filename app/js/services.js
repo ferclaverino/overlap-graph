@@ -1,6 +1,6 @@
 var overlapGraphServices = angular.module('overlapGraphServices', []);
 
-overlapGraphServices.factory('overlapGrapBuilder', function() {
+overlapGraphServices.factory('overlapGraphBuilder', function() {
   return {
     build: function(chains) {
       var prefixIndex = {};
