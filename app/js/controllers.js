@@ -7,6 +7,7 @@ var overlapGraphControllers = angular.module('overlapGraphControllers', []);
 overlapGraphControllers.controller('OverlapGraphCtrl', function OverlapGraphCtrl($scope) {
   $scope.chains = [];
   $scope.newChain = { name: "", sequence: "" };
+  $scope.graph = [];
 
   $scope.addChain = function (chainName, chainSequence) {
     if (chainName && chainSequence) {
