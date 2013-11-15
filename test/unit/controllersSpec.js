@@ -17,9 +17,18 @@ describe('overlapGraph controllers', function() {
       expect(scope.chains.length).toBe(0);
     });
 
+    it('should create an empty newChain model', function() {
+      expect(scope.newChain).toEqual({ name: "", sequence: "" });
+    });
+
     it('should add a new chain to model', function() {
       scope.addChain("a", "1234");
       expect(scope.chains.length).toBe(1);
+    });
+
+    it('can t add an empty chain to model', function() {
+      scope.addChain("", "");
+      expect(scope.chains.length).toBe(0);
     });
 
   });

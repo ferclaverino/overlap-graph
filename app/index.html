@@ -13,13 +13,13 @@
     <form role="form">
       <div class="form-group">
         <label for="chainName">Name</label>
-        <input type="text" class="form-control" id="chainName" placeholder="Name" ng-model="chainName">
+        <input type="text" class="form-control" id="chainName" placeholder="Name" ng-model="newChain.name">
       </div>
       <div class="form-group">
         <label for="chainSequence">Sequence</label>
-        <input type="text" class="form-control" id="chainSequence" placeholder="Sequence" ng-model="chainSequence">
+        <input type="text" class="form-control" id="chainSequence" placeholder="Sequence" ng-model="newChain.sequence">
       </div>
-      <button type="button" class="btn btn-default" ng-click="addChain(chainName, chainSequence)">Add</button>
+      <button type="button" class="btn btn-default" ng-click="addChain(newChain.name, newChain.sequence)">Add</button>
     </form>
 
     <table class="chains table">
